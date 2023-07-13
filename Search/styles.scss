@@ -46,7 +46,7 @@ body {
   font-family: $font-list;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  //justify-content: space-between;
   margin: 0;
   min-height: 100vh;
   min-width: 400px;
@@ -206,7 +206,11 @@ footer {
 
 
 .advanced-section {
-  margin-left: 25px;
+  // margin-left: 25px;
+  max-width: 1140px;
+  min-width: 200px;
+  width: 96%;
+  margin: 40px 2% 0 45px;
 }
 
 .advanced-form {
@@ -294,6 +298,20 @@ footer {
   padding-left: 5px;
   vertical-align: middle;
   position: relative;
+}
+
+.example {
+  color: #666;
+  font-family: monospace;
+  font-size: 11px;
+  white-space: pre;
+}
+
+#todothis {
+  font-size: 13px;
+  font-style: normal; 
+  font-weight: 550; 
+  height: 30px; 
 }
 
 // TODO: align text left
