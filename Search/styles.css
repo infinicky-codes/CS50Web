@@ -1,0 +1,236 @@
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format("woff2");
+}
+.blu {
+  color: #4285F4;
+}
+
+.red {
+  color: #db4437;
+}
+
+.ylw {
+  color: #f4b400;
+}
+
+.grn {
+  color: #0f9d58;
+}
+
+body {
+  font-family: arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 400px;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 0px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin: 0px;
+  color: inherit;
+  gap: 20px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 5px;
+}
+
+.small-logo {
+  display: inline-flex;
+  font-family: Product Sans;
+  font-size: 24px;
+}
+
+h3 {
+  margin-left: 25px;
+  color: rgb(217, 48, 37);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+h5 {
+  margin: 0;
+}
+
+.left-nav {
+  margin: 0;
+}
+
+.png {
+  height: auto;
+  cursor: pointer;
+}
+
+.logo {
+  font-family: Product Sans;
+  font-size: 92px;
+  margin-bottom: 20px;
+}
+
+header, footer {
+  font-size: 16px;
+  padding: 10px;
+}
+
+header {
+  border-bottom: 1px solid gainsboro;
+}
+
+footer {
+  background-color: #f2f2f2;
+  color: rgb(112, 117, 122);
+}
+
+.reg-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 38px;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+  padding: 0px 8px;
+}
+
+.input-container:hover {
+  box-shadow: 0 0 10px 0 gainsboro;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 584px;
+  width: 100%;
+}
+
+.text-input {
+  border: none;
+  box-shadow: none;
+  border-radius: 24px;
+  line-height: 22px;
+  min-height: 36px;
+  width: auto;
+  background-color: transparent;
+  padding-left: 15px;
+  font-size: 16px;
+  outline: none;
+  flex: 1 1 0px;
+  min-width: 360px;
+}
+
+.button {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 4px;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px 0 gainsboro;
+}
+
+.logo {
+  display: flex;
+}
+
+.subtext {
+  color: #4487f6;
+  margin-left: -70px;
+  margin-top: 90px;
+  font-size: 20px;
+}
+
+.advanced-section {
+  margin-left: 25px;
+}
+
+.advanced-form {
+  color: rgb(51, 51, 51);
+  margin: 0;
+}
+
+.search-option {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.advanced-input {
+  outline: gainsboro;
+  border: 1px solid gainsboro;
+  height: 25px;
+  width: 250px;
+}
+
+.advanced-button {
+  color: white;
+  background-color: rgb(77, 144, 254);
+  background-image: -webkit-linear-gradient(top, rgb(77, 144, 254));
+  border: 1px solid rgb(48, 121, 237);
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  height: 30px;
+  min-width: 120px;
+  margin: 20px 0;
+}
+
+@media (max-width: 530px) {
+  .text-input {
+    width: 95vw;
+  }
+  #footer-nav {
+    flex-direction: column;
+  }
+  #left-footer, #right-footer {
+    justify-content: center;
+  }
+}
+@media (max-height: 420px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
