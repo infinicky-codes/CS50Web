@@ -32,29 +32,38 @@
     
     <form class="advanced-form" action="https://www.google.com/search" name="f" autocomplete="off" spellcheck="false">
 
-      <div class="title">
-        <h4>Find pages with...</h4>
-        
-        <h4>To do this in the search box.</h4>
+      <div class="option-row">
+        <div class="option-text">
+          <h4>Find pages with...</h4>
+        </div>
+        <div class="whitespace">
+          <p>&nbsp;</p>
+        </div>
+        <div class="option-explanation">
+          <h4>To do this in the search box.</h4>
+        </div>
       </div>
+      <br>
       <div class="inputs">
-        <div class="option-container">
-            <p>all these words:</p>
-            <p>any of these words:</p>
-            <p>this exact word or phrase:</p>
-            <p>none of these words:</p>
+        <div class="option-row">
+            <p class="option-text">all these words:</p>
+            <input type="text" name="as_q" class="advanced-input">
+            <p class="option-explanation">Type the important words: tri-colour rat terrier</p>
         </div>
-        <div class="optionalinput-container">
-          <input type="text" name="as_q" class="advanced-input">
-          <input type="text" name="as_epq" class="advanced-input">
+        <div class="option-row">
+          <p class="option-text">this exact word or phrase:</p>
           <input type="text" name="as_oq" class="advanced-input">
-          <input type="text" name="as_eq" class="advanced-input">
+          <p class="option-explanation">Put exact words in quotes: "rat terrier"</p>
         </div>
-        <div class="information-container">
-          <p>blabla</p>
-          <p>blabla</p>
-          <p>blabla</p>
-          <p>blabla</p>
+        <div class="option-row">
+          <p class="option-text">any of these words:</p>
+          <input type="text" name="as_epq" class="advanced-input">
+          <p class="option-explanation">Type OR between all the words you want: miniature OR standard</p>
+        </div>
+        <div class="option-row">
+            <p class="option-text">none of these words:</p>
+            <input type="text" name="as_eq" class="advanced-input">
+            <p class="option-explanation">Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</p>
         </div>
       </div>
       <div class="submit">
