@@ -214,6 +214,23 @@ footer {
   height: 30px;
   min-width: 120px;
   margin: 20px 0;
+  cursor: pointer;
+}
+
+.title, .inputs, .submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.optionalinput-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.information-container {
+  align-self: flex-start;
 }
 
 @media (max-width: 530px) {
