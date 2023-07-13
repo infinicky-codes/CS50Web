@@ -155,6 +155,28 @@ footer div {
   gap: 20px;
 }
 
+#youcan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#redirects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 0, 238);
+  font-size: 13px;
+  line-height: 18px;
+  gap: 0;
+}
+
+#redirects a {
+  margin: 0;
+}
+
 .reg-section {
   display: flex;
   flex-direction: column;
