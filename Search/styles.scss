@@ -123,8 +123,36 @@ header {
 }
 
 footer {
+  flex-direction: column;
   background-color: $footer-color;
-  color: rgb(112, 117, 122)
+  color: rgb(112, 117, 122);
+  line-height: 40px;
+  border-top: 1px solid #dadce0;
+  font-size: 14px;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#top-footer {
+  padding: 0 40px;
+  border-bottom: 1px solid #dadce0;
+}
+
+#bottom-footer {
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer a {
+  margin: 0;
+}
+
+footer div {
+  display: flex;
+  gap: 20px;
 }
 
 .reg-section {
