@@ -222,8 +222,16 @@ footer {
   cursor: pointer;
 }
 
-.title, .submit {
+.submit {
   display: flex;
+  width: 100%;
+}
+
+.mid {
+  width: 50%;
+  min-width: 167px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .inputs {
@@ -275,7 +283,10 @@ footer {
   width: 50%;
 }
 
-@media (max-width: 530px) {
+@media (max-width: 669px) {
+  .option-explanation {
+    content-visibility: hidden;
+  }
   .text-input {
     width: 95vw;
   }
