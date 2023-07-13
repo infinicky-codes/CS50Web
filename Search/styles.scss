@@ -310,6 +310,11 @@ footer {
   width: 50%;
 }
 
+.underline {
+  margin: 18px 0;
+  border-top: 1px solid #ebebeb;
+}
+
 @media (max-width: 669px) {
   .option-explanation {
     content-visibility: hidden;
