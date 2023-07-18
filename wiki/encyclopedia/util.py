@@ -6,7 +6,7 @@ from django.core.files.storage import default_storage
 
 def list_entries():
     """
-    Returns a list of all names of encyclopedia entries.
+    Returns a sorted list of all names of encyclopedia entries.
     """
     _, filenames = default_storage.listdir("entries")
     return list(sorted(re.sub(r"\.md$", "", filename)
@@ -30,8 +30,10 @@ def get_entry(title):
     Retrieves an encyclopedia entry by its title. If no such
     entry exists, the function returns None.
     """
+    filename = f"entries/{title}.md"
+    print(filename)
     try:
-        f = default_storage.open(f"entries/{title}.md")
+        f = default_storage.open(filename)
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
