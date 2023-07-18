@@ -31,7 +31,6 @@ def get_entry(title):
     entry exists, the function returns None.
     """
     filename = f"entries/{title}.md"
-    print(filename)
     try:
         f = default_storage.open(filename)
         return f.read().decode("utf-8")
