@@ -4,6 +4,11 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 
 
+from markdown2 import Markdown
+
+markdown_converter = Markdown()
+
+
 def list_entries():
     """
     Returns a sorted list of all names of encyclopedia entries.
@@ -33,6 +38,16 @@ def get_entry(title):
     filename = f"entries/{title}.md"
     try:
         f = default_storage.open(filename)
-        return f.read().decode("utf-8")
+        decoded_file = f.read().decode("utf-8")
+        return decoded_file
     except FileNotFoundError:
+        # return "The requested page could not be found"
         return None
+
+
+def convert_file(file):
+        """ 
+        Converts a Markdown file to an HTML file.
+        """
+        return markdown_converter.convert(file)
+

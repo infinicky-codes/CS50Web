@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from markdown2 import Markdown
 
 from . import util
 
-markdown_converter = Markdown()
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -11,8 +9,15 @@ def index(request):
     })
 
 def wiki(request, title):
-    converted_html = markdown_converter.convert(util.get_entry(title))
+    # Get correct entry file
+    entry = util.get_entry(title)
+
+    # Convert to HTML, or use an error message
+    html = "<h1 id=\"notfound\">The requested page could not be found.</h1>"
+    if entry != None:
+        html = util.convert_file(entry)
+
     return render(request, "encyclopedia/wiki.html", {
-        "entry": converted_html,
+        "entry": html,
         "title": title
     })
