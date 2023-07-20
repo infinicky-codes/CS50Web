@@ -15,7 +15,8 @@ def list_entries():
     """
     _, filenames = default_storage.listdir("entries")
     return list(sorted(re.sub(r"\.md$", "", filename)
-                for filename in filenames if filename.endswith(".md")))
+                for filename in filenames if filename.endswith(".md")
+                ))
 
 
 def save_entry(title, content):
@@ -41,7 +42,7 @@ def get_entry(title):
         decoded_file = f.read().decode("utf-8")
         return decoded_file
     except FileNotFoundError:
-        # return "The requested page could not be found"
+        # The requested page could not be found
         return None
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django import forms
+
 from . import util
 
 
@@ -26,10 +27,10 @@ def wiki(request, title):
 
 def search(request):
     """
-    If the query matches the name of an encyclopedia entry, the user will 
-    be redirected to that entry's page.
-    If not, the user is taken to a search results page that displays 
-    a list of all encyclopedia entries that have the query as a substring.
+    If the query matches the name of an encyclopedia entry, the user
+    will be redirected to that entry's page. If not, the user is 
+    taken to a search results page that displays a list of all 
+    encyclopedia entries that have the query as a substring.
     """
     search_results = []
     query = request.GET.get("q").lower()
@@ -49,25 +50,60 @@ def search(request):
 
 
 def create(request):
+    """
+    Loads the Create New Page page, or when saving a new wiki,
+    saves it to disk and loads newly created page.
+    """
+    # Create new wiki if saved
+    if request.method == "POST":
+        form = CreateWikiForm(request.POST)
+        # Server-side validation
+        if form.is_valid():
+            return add_wiki(request, form)
+        else:
+            return render(request, "encyclopedia/create_wiki.html", {
+                "form": form
+            })
+
+    # Just load the Create New Page page
     return render(request, "encyclopedia/create_wiki.html", {
-        "form": CreateWikiForm()
+            "form": CreateWikiForm()
     })
 
-    if request.method == "post":
-        form = CreateWikiForm(request.POST)
-        # check validity? need title and content
-        title = form.cleaned_data["Title"]
-        content = form.cleaned_data["Content"]
-        # add wiki to entries
-        util.save_entry(title, content)
 
+def edit(request, title):
+    """
+    Changes the content of an encyclopedia entry and loads the newly
+    edited page.
+    """
+    form = CreateWikiForm(request.POST)
+    if form.is_valid():
+        return util.save_entry(title, form.cleaned_data("content"))
+
+
+
+def add_wiki(request, form):
+    title = form.cleaned_data["title"]
+    # Check if a page with this title already exists 
+    if util.get_entry(title) != None:
+        return render(request, "encyclopedia/create_wiki.html", {
+            "form": form,
+            "message": "A page with this title already exists."
+        })        
+    # Save new wiki and load newly created page
     else:
-        return render(request, "encyclopedia/create_wiki.html")
+        content = form.cleaned_data["content"]
+        util.save_entry(title, content)
+        return wiki(request, title)
 
 
 class CreateWikiForm(forms.Form):
-    title = forms.CharField(label="Title") 
-    content = forms.CharField(
-            label="Content", 
-            widget=forms.Textarea()
-        )  
+    # Client-side validation
+    title = forms.CharField(label="Title", required=True) 
+    content = forms.CharField(label="Markdown Content", 
+                              widget=forms.Textarea())
+
+
+class EditWikiForm(forms.Form):
+    content = forms.CharField(label="Edit Markdown", 
+                              widget=forms.Textarea())  
