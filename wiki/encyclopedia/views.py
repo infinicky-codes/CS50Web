@@ -40,7 +40,7 @@ def search(request):
             return wiki(request, query)
         # If text matches entry, add to search results
         elif query in entry_lower:
-            search_results += entry
+            search_results.append(entry)
     
     # Return list of search results
     return render(request, "encyclopedia/search_results.html", {
