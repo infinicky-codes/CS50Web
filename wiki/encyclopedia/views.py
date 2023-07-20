@@ -66,5 +66,8 @@ def create(request):
 
 
 class CreateWikiForm(forms.Form):
-    title = forms.CharField(label="Title")
-    content = forms.CharField(label="Content")
+    title = forms.CharField(label="Title") 
+    content = forms.CharField(
+            label="Content", 
+            widget=forms.Textarea()
+        )  
