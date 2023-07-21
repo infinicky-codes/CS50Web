@@ -43,9 +43,13 @@ def search(request):
         elif query in entry_lower:
             search_results.append(entry)
     
+    if len(search_results) == 0:
+        empty = True
+    
     # Return list of search results
     return render(request, "encyclopedia/search_results.html", {
-        "results": search_results
+        "results": search_results,
+        "empty": empty
     }) 
 
 
