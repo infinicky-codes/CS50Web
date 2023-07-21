@@ -1,4 +1,6 @@
-# CSS with Superpowers
+# Sass
+
+## CSS with Superpowers
 
 ## Install on Mac OS X or Linux (Homebrew)
 
