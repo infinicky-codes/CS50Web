@@ -6,10 +6,9 @@
 
 {% block body %}
   <h1>Search Results</h1>
-  {% if results.len == 0  %}
-    No matching pages found.
-  {% elif results.len == 1 %}
-  <a href="{% url 'wiki' result %}">{{ result }}</a>
+
+  {% if empty %}
+    Could not find any matching pages for this search term.
   {% else %}
     <ul>
       {% for result in results %}
