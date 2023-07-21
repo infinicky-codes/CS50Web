@@ -101,10 +101,10 @@ def edit(request, title):
 
     # Load the Edit Page page
     form = EditWikiForm()
-    original_text = util.convert_file(util.get_entry(title))
+    original_text = util.get_entry(title)
     form.fields['content'].initial = original_text
     return render(request, "encyclopedia/edit_wiki.html", {
-        "form": EditWikiForm(),
+        "form": form,
         "title": title
     })
 
