@@ -71,17 +71,6 @@ def create(request):
     })
 
 
-def edit(request, title):
-    """
-    Changes the content of an encyclopedia entry and loads the newly
-    edited page.
-    """
-    form = CreateWikiForm(request.POST)
-    if form.is_valid():
-        return util.save_entry(title, form.cleaned_data("content"))
-
-
-
 def add_wiki(request, form):
     title = form.cleaned_data["title"]
     # Check if a page with this title already exists 
@@ -95,6 +84,29 @@ def add_wiki(request, form):
         content = form.cleaned_data["content"]
         util.save_entry(title, content)
         return wiki(request, title)
+
+
+# TODO: figure out how to get the title parameter in here
+def edit(request, title):
+    """
+    Changes the content of an encyclopedia entry and loads the newly
+    edited page.
+    """
+    # Update the entry
+    if request.method == "POST":
+        form = EditWikiForm(request.POST)
+        if form.is_valid():
+            util.save_entry(title, form.cleaned_data("content"))
+        return wiki(request, title)
+
+    # Load the Edit Page page
+    form = EditWikiForm()
+    original_text = util.convert_file(util.get_entry(title))
+    form.fields['content'].initial = original_text
+    return render(request, "encyclopedia/edit_wiki.html", {
+        "form": EditWikiForm(),
+        "title": title
+    })
 
 
 class CreateWikiForm(forms.Form):
