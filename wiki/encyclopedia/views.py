@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django import forms
 
+from random import choice
+
 from . import util
 
 
@@ -22,6 +24,15 @@ def wiki(request, title):
     return render(request, "encyclopedia/wiki.html", {
         "entry": html, "title": title
     })
+
+
+def random(request):
+    """
+    Pick a random title from the list of entries and load that page.
+    """
+    options = util.list_entries()
+    title = choice(options)
+    return wiki(request, title)    
 
 
 def search(request):
