@@ -14,14 +14,13 @@ def wiki(request, title):
     # Get correct entry file
     entry = util.get_entry(title)
 
-    # Convert to HTML, or use an error message
+    # Convert to HTML, or pass an error message
     html = "<h1 id=\"notfound\">The requested page could not be found.</h1>"
     if entry != None:
         html = util.convert_file(entry)
 
     return render(request, "encyclopedia/wiki.html", {
-        "entry": html,
-        "title": title
+        "entry": html, "title": title
     })
 
 
@@ -45,8 +44,8 @@ def search(request):
     
     # Return list of search results
     return render(request, "encyclopedia/search_results.html", {
-        "results": search_results,
-        "empty": len(search_results) == 0
+        "results": search_results, "empty": len(search_results) == 0,
+        "query": query
     }) 
 
 
@@ -87,7 +86,6 @@ def add_wiki(request, form):
         return wiki(request, title)
 
 
-# TODO: figure out how to get the title parameter in here
 def edit(request, title):
     """
     Changes the content of an encyclopedia entry and loads the newly
@@ -106,8 +104,7 @@ def edit(request, title):
     original_text = util.get_entry(title)
     form.fields['content'].initial = original_text
     return render(request, "encyclopedia/edit_wiki.html", {
-        "form": form,
-        "title": title
+        "form": form, "title": title
     })
 
 

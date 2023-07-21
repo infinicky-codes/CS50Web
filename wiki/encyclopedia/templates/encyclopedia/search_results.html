@@ -7,16 +7,17 @@
 {% block body %}
   <h1>Search Results</h1>
 
-  {% if empty %}
-    Could not find any matching pages for this search term.
-  {% else %}
-    <ul>
-      {% for result in results %}
+  <ul>
+    {% for result in results %}
+
       <a href="{% url 'wiki' result %}">
         <li>{{ result }}</li>
       </a>
-      {% endfor %}
-    </ul>
-  {% endif %}
+
+      {% empty %}
+        <li>Could not find any matching pages for <b>"{{ query }}"</b>.</li>
+
+    {% endfor %}
+  </ul>
     
 {% endblock %}
