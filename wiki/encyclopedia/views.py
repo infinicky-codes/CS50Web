@@ -96,7 +96,8 @@ def edit(request, title):
     if request.method == "POST":
         form = EditWikiForm(request.POST)
         if form.is_valid():
-            util.save_entry(title, form.cleaned_data("content"))
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
         return wiki(request, title)
 
     # Load the Edit Page page
@@ -112,10 +113,10 @@ def edit(request, title):
 class CreateWikiForm(forms.Form):
     # Client-side validation
     title = forms.CharField(label="Title", required=True) 
-    content = forms.CharField(label="Markdown Content", 
+    content = forms.CharField(label="Content", 
                               widget=forms.Textarea())
 
 
 class EditWikiForm(forms.Form):
-    content = forms.CharField(label="Edit Markdown", 
+    content = forms.CharField(label="Edit Content", 
                               widget=forms.Textarea())  
