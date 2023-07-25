@@ -7,14 +7,29 @@ class User(AbstractUser):
 
 
 class Listing(models.Model):
-    item = models.CharField(max_length=64)
+    # Each listing is created by one specific User
+    user = models.ForeignKey(User, on_delete=models.CASCADE),
+    item_name = models.CharField(max_length=64),
+    asking_price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.id}: {self.item_name}, €{self.asking_price}"
 
 
 class Bid(models.Model):
-    amount = models.IntegerField()
+    # Each bid is on one specific Listing
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE),
+    # Made by one specific User
+    user = models.ForeignKey(User, on_delete=models.CASCADE),
+    amount = models.DecimalField(max_digits=7, decimal_places=2)
 
 
 class Comment(models.Model):
-    content = models.CharField()
+    # Each comment is on one specific Listing
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE),
+    # Made by one specific User
+    user = models.ForeignKey(User, on_delete=models.CASCADE),
+    content = models.CharField(max_length=256)
+    
 
 
