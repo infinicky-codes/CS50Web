@@ -33,7 +33,7 @@ class Bid(models.Model):
     # made by one specific User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # and is for a certain amount
-    # TODO: new bid must be higher than last bid on same listing
+    # TODO: new bid must be higher than listing.current_price
     amount = models.DecimalField(max_digits=7, decimal_places=2)
 
 
