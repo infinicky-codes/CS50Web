@@ -6,6 +6,6 @@ This repository contains my attempts at projects from [CS50’s Web Programming 
 ## Projects
 0. Google Search recreation
 1. Wikipedia-like encyclopedia
-2. eBay-like e-commerce auction site
+2. eBay-like e-commerce auction site (in progress)
 3. Front-end for an email client that makes API calls to send and receive emails
 4. Twitter-like social network website
