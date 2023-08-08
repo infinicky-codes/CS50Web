@@ -4,7 +4,7 @@ This repository contains my attempts at projects from [CS50’s Web Programming 
 ![CS50 Web image displaying Google's Dinosaur game](CS50W.png)
 
 ## Projects
-0. Google Search Recreation
+0. Google Search recreation
 1. Wikipedia-like Encyclopedia
 2. eBay-like e-commerce auction site
 3. Front-end for an email client that makes API calls to send and receive emails
