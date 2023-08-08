@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Advanced Search</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./imgs/icon.png">
+</head>
+<body>
+  <header>
+    <nav>
+        <a class="left-nav" href="./index.html">
+          <h5 class="small-logo">
+            <span class="blu">G</span>
+            <span class="red">o</span>
+            <span class="ylw">o</span>
+            <span class="blu">g</span>
+            <span class="grn">l</span>
+            <span class="red">e</span>
+          </h5>
+        </a>
+        <ul class="right-nav">
+          <a href="./index.html">Google Search</a>
+        </ul>
+    </nav>
+    <br>
+    <h3>Advanced Search</h3>
+  </header>
+  <section class="advanced-section">
+    
+    <form class="advanced-form" action="https://www.google.com/search" name="f" autocomplete="off" spellcheck="false">
+
+      <div class="option-row">
+        <div class="option-text">
+          <h4>Find pages with...</h4>
+        </div>
+        <div class="whitespace">
+          <p>&nbsp;</p>
+        </div>
+        <div class="option-explanation">
+          <h4 id="todothis">To do this in the search box.</h4>
+        </div>
+      </div>
+      <br>
+      <div class="inputs">
+        <div class="option-row">
+            <p class="option-text">all these words:</p>
+            <input type="text" name="as_q" class="advanced-input">
+          <div class="option-explanation">
+              <p>Type the important words: <span class="example">tri-colour rat terrier</span></p>
+            </div>
+        </div>
+        <div class="option-row">
+          <p class="option-text">this exact word or phrase:</p>
+          <input type="text" name="as_epq" class="advanced-input">
+          <p class="option-explanation">Put exact words in quotes: <span class="example">"rat terrier"</span></p>
+        </div>
+        <div class="option-row">
+          <p class="option-text">any of these words:</p>
+          <input type="text" name="as_oq" class="advanced-input">
+          <div class="option-explanation">
+            <p>Type <span class="example">OR</span> between all the words you want: <span class="example">miniature OR standard</span></p>
+          </div>
+        </div>
+        <div class="option-row">
+          <p class="option-text">none of these words:</p>
+          <input type="text" name="as_eq" class="advanced-input">
+          <div class="option-explanation">
+            <p>Put a minus sign just before words that you don't want: <span class="example">-rodent, -"Jack Russell"</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="submit">
+        <div class="option-text">
+          &nbsp;
+        </div>
+        <div class="mid">
+          <input class="advanced-button" type="submit" name="btnK" value="Advanced Search">
+        </div>
+        <div class="option-explanation">
+          &nbsp;
+        </div>
+      </div>
+      <div class="underline">  </div>
+    </form>
+    <div id="youcan">
+      <div>
+        <h4>You can also...</h4>
+      </div>
+      <ul id="redirects">
+        <a href="https://support.google.com/websearch?p=adv_pages_similar&amp;hl=en">Find pages that are similar to a URL</a>
+        <a href="https://support.google.com/websearch?p=adv_pages_visited&amp;hl=en">Search pages that you've visited</a>
+        <a href="https://support.google.com/websearch?p=adv_operators&amp;hl=en">Use operators in the search box</a>
+        <a href="/preferences?hl=en-NL">Customise your search settings</a>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <nav id="top-footer">
+      Location
+    </nav>
+    <nav id="bottom-footer">
+      <div>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div>
+        Copyright infinicky-codes 2023
+      </div>
+    </nav>
+  </footer>
+</body>
+</html>
