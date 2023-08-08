@@ -1,5 +1,5 @@
 # CS50Web
-Projects for [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/) course of 2020.
+This repository contains my attempts at projects from [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/) course of 2020.
 
 ![CS50 Web image displaying Google's Dinosaur game](CS50W.png)
 
