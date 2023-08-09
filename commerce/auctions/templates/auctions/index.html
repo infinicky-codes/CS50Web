@@ -6,7 +6,12 @@
         {% for listing in listings %}
             <div class="listing-container">
                 <div class="left">
-                    <img src="{{ listing.image_url }}" alt="Listing image">
+                    {% if listing.image_url == null %}
+                        <img src="https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" 
+                            alt="No image available">
+                    {% else %}        
+                            <img src="{{ listing.image_url }}" alt="Listing image">
+                    {% endif %}
                 </div>
                 <div class="right">
                     <h4>Item: {{ listing.title }}</h4>
