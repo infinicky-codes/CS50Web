@@ -5,14 +5,19 @@
 
     {% for listing in listings %}
         <div class="listing-container">
-            <h4>Item: {{ listing.title }}</h4>
-            <p><em>Price:</em> ${{ listing.asking_price }}</p>
-            <p>{{ listing.description }}</p>
-            {% if listing.current_price > 0 %}
-                <p><em>Highest bid:</em> ${{ listing.current_price }}</p>
-            {% else %}
-                <p>No bids placed yet.</p>
-            {% endif %}
+            <div class="left">
+                <img src="{{ listing.image_url }}" alt="Listing image">
+            </div>
+            <div class="right">
+                <h4>Item: {{ listing.title }}</h4>
+                <p><em>Price:</em> ${{ listing.asking_price }}</p>
+                <p>{{ listing.description }}</p>
+                {% if listing.current_price > 0 %}
+                    <p><em>Highest bid:</em> ${{ listing.current_price }}</p>
+                {% else %}
+                    <p>No bids placed yet.</p>
+                {% endif %}
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
