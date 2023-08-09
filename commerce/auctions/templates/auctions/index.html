@@ -2,22 +2,25 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-
-    {% for listing in listings %}
-        <div class="listing-container">
-            <div class="left">
-                <img src="{{ listing.image_url }}" alt="Listing image">
-            </div>
-            <div class="right">
-                <h4>Item: {{ listing.title }}</h4>
-                <p><em>Price:</em> ${{ listing.asking_price }}</p>
-                <p>{{ listing.description }}</p>
-                {% if listing.current_price > 0 %}
-                    <p><em>Highest bid:</em> ${{ listing.current_price }}</p>
-                {% else %}
+    <div class="wrap">
+        {% for listing in listings %}
+            <div class="listing-container">
+                <div class="left">
+                    <img src="{{ listing.image_url }}" alt="Listing image">
+                </div>
+                <div class="right">
+                    <h4>Item: {{ listing.title }}</h4>
+                    <p><em>Price:</em> ${{ listing.asking_price }}</p>
+                    <p>{{ listing.description }}</p>
+                    {% if listing.current_price > 0 %}
+                    <p>
+                        <em>Highest bid:</em> ${{ listing.current_price }}
+                    </p>
+                    {% else %}
                     <p>No bids placed yet.</p>
-                {% endif %}
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
