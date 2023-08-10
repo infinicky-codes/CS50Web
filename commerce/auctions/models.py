@@ -33,7 +33,7 @@ class Listing(models.Model):
     def __str__(self):
         if self.current_price == None:
             self.current_price = self.asking_price
-        return f"Listing #{self.id}: {self.title}, €{self.current_price}"
+        return f"Listing #{self.id}: {self.title}, ${self.current_price}"
 
 
 # TODO: user can't bid on own listing
@@ -47,7 +47,7 @@ class Bid(models.Model):
     amount = models.DecimalField(max_digits=7, decimal_places=2)
 
     def __str__(self):
-        return f"Bid #{self.id}: €{self.amount} on {self.listing.title}"
+        return f"Bid #{self.id}: ${self.amount} on {self.listing.title}"
 
 
 class Comment(models.Model):
