@@ -17,6 +17,14 @@ def create(request):
     return render(request, "auctions/create.html")
 
 
+def watchlist(request):
+    return render(request, "auctions/create.html")
+
+
+def categories(request):
+    return render(request, "auctions/create.html")
+
+
 ### User specific Views ###
 
 def login_view(request):
