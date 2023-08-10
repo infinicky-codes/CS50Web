@@ -20,7 +20,7 @@
 
       <input class="form-control" type="text" name="title" placeholder="Title">
       <input class="form-control" type="text" name="description" placeholder="Description">      
-      <input class="form-control" type="number" name="price" placeholder="Asking price (e.g. $9.99)">
+      <input class="form-control" type="number" step="0.01" name="price" placeholder="Asking price (e.g. $9.99)">
       <select class="form-control" name="category">
         <option value="" disabled selected>Select category (optional)</option>
         {% for category in categories.all %}

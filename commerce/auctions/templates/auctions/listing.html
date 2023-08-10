@@ -5,4 +5,43 @@
 
 <h2> {{ listing.title }} </h2>
 
+{% if listing.image_url == null %}
+  <img src="{% static 'auctions/no_img.jpeg' %}" alt="No image available">
+{% else %}        
+  <img src="{{ listing.image_url }}" alt="Listing image" width="300px">
+{% endif %}
+<br>
+
+{{ listing.description }}
+
+<br>
+
+Asking Price: ${{ listing.asking_price }}
+
+<br>
+
+{% if listing.bids.all.last is not None %}
+  Previous bid(s):
+  {% for bid in listing.bids.all %}
+    <li>${{ bid.amount }}</li>
+  {% endfor %}
+{% else %}
+  No bids yet.
+{% endif %}
+
+{% if user.is_authenticated %}
+<!-- TODO: watchlist functionality -->
+<!-- TODO: heart button -->
+<input class="btn btn-primary" type="submit" value="Add to Watchlist">
+
+<input class="form-control" type="number" step="0.01" name="bid" placeholder="Bid (e.g. $9.99)">
+<input class="btn btn-primary" type="submit" value="Place Bid">
+{% endif %}
+
+<h4>Details</h4>
+<ul>
+  <li>Seller: {{ listing.user }} </li>
+  <li>Category: {{ listing.category.title }} </li>
+</ul>
+
 {% endblock %}
