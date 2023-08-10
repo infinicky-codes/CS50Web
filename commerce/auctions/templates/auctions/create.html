@@ -8,30 +8,27 @@
 <div class="flex-container">
 
   <div class="left">
-    <img src="{% static 'auctions/no_img.jpeg' %}" alt="No image available" style="border:3px solid black">
-    <br>
-    Image URL: <input type="url" name="image_url"> (optional)
+    <img src="{% static 'auctions/no_img.jpeg' %}" alt="No image available" 
+        style="border:3px solid rgb(90, 89, 89)">
+
+    <input class="form-control" type="url" name="image_url" placeholder="Image URL (optional)"> 
   </div>
 
   <div class="right">
-    <form action="" method="post">
+    <form action="{% url 'create' %}" method="post">
       {% csrf_token %}
 
-      Title: <input type="text" name="title">
-      <br>
-      Description: <input type="text" name="description">      
-      <br>
-      Asking Price: $<input type="number" name="price" value="9.99">
-      <br>
-      Category: 
-      <select name="category">
+      <input class="form-control" type="text" name="title" placeholder="Title">
+      <input class="form-control" type="text" name="description" placeholder="Description">      
+      <input class="form-control" type="number" name="price" placeholder="Asking price (e.g. $9.99)">
+      <select class="form-control" name="category">
+        <option value="" disabled selected>Select category (optional)</option>
         {% for category in categories.all %}
           <option value="{{ category.title }}">{{ category.title }}</option>
         {% endfor %}
-      </select> (optional)
-      <br>
+      </select>
 
-      <input type="submit" value="Save">
+      <input class="btn btn-primary" type="submit" value="Save Listing">
 
     </form>
   </div>

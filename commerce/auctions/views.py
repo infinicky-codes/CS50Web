@@ -10,7 +10,7 @@ from .models import User, Listing, Category
 def index(request):
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.all()
-})
+    })
 
 
 def create(request):
