@@ -18,9 +18,9 @@
                     <p><strong>Price:</strong> ${{ listing.asking_price }}</p>
                     <p>{{ listing.description }}</p>
                     {% if listing.current_price > 0 %}
-                    <p>
-                        <em>Highest bid:</em> ${{ listing.current_price }}
-                    </p>
+                        <p>
+                            <em>Highest bid:</em> ${{ listing.current_price }}
+                        </p>
                     {% else %}
                         <p>No bids placed yet.</p>
                     {% endif %}
