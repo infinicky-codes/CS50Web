@@ -5,7 +5,7 @@
     <h2>Active Listings</h2>
     <div class="wrap">
         {% for listing in listings %}
-            <div class="listing-container">
+            <div class="flex-container">
                 <div class="left">
                     {% if listing.image_url == null %}
                         <img src="{% static 'auctions/no_img.jpeg' %}" alt="No image available">
@@ -14,7 +14,7 @@
                     {% endif %}
                 </div>
                 <div class="right">
-                    <h4>Item: {{ listing.title }}</h4>
+                    <h4>{{ listing.title }}</h4>
                     <p><strong>Price:</strong> ${{ listing.asking_price }}</p>
                     <p>{{ listing.description }}</p>
                     {% if listing.bids.all.last != None %}

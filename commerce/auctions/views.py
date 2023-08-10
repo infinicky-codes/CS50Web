@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, Listing
+from .models import User, Listing, Category
 
 
 def index(request):
@@ -14,7 +14,9 @@ def index(request):
 
 
 def create(request):
-    return render(request, "auctions/create.html")
+    return render(request, "auctions/create.html", {
+        "categories": Category.objects.all()
+    })
 
 
 def watchlist(request):

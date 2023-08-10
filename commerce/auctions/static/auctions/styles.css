@@ -12,7 +12,7 @@ body {
     gap: 16px;
 }
 
-.listing-container {
+.flex-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -20,12 +20,12 @@ body {
     width: 800px;
 }
 
-.listing-container img {
+.flex-container img {
     width: 300px;
     height: 300px;
 }
 
-.listing-container div {
+.flex-container div {
     width: 350px;
 }
 
