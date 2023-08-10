@@ -17,23 +17,20 @@ def create(request):
     if request.method == "POST":
         user = request.user
         title = request.POST["title"]
-        description = request.POST["description"]
+        desc = request.POST["description"]
         price = request.POST["price"]
-        highest_bid = None
+        bid = None
+        url = request.POST.get("image_url", None)
+        cat = request.POST.get("category", None)
 
-        if request.POST["image_url"] is not None:
-            url = request.POST["image_url"]
-        else:
-            url = None
-        if request.POST["category"] is not None:
-            category = request.POST["category"]
-        else:
-            category = None
-
-        listing = Listing.objects.create(user, title, description, 
-                    price, highest_bid, url, category)
+        listing = Listing(user = user, title = title, 
+                    description = desc, asking_price = price,
+                    highest_bid = bid, image_url = url, category = cat)
         listing.save()
-
+        return render(request, "auctions/index.html", {
+            "listings": Listing.objects.all()
+        })
+    
     else:
         return render(request, "auctions/create.html", {
             "categories": Category.objects.all()

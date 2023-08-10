@@ -31,9 +31,7 @@ class Listing(models.Model):
                                  null=True, blank=True)
 
     def __str__(self):
-        if self.current_price == None:
-            self.current_price = self.asking_price
-        return f"Listing #{self.id}: {self.title}, ${self.current_price}"
+        return f"Listing #{self.id}: {self.title}, asking price ${self.asking_price}"
 
 
 # TODO: user can't bid on own listing
