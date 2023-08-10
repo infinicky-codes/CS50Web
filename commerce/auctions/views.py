@@ -13,6 +13,9 @@ def index(request):
 })
 
 
+def create(request):
+    return render(request, "auctions/create.html")
+
 
 ### User specific Views ###
 
