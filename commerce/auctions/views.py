@@ -8,9 +8,6 @@ from .models import User, Listing
 
 
 def index(request):
-    # listings = Listing.objects.all()
-    # for listing in listings:
-    #     current = listing.current_price
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.all()
 })

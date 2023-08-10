@@ -17,9 +17,9 @@
                     <h4>Item: {{ listing.title }}</h4>
                     <p><strong>Price:</strong> ${{ listing.asking_price }}</p>
                     <p>{{ listing.description }}</p>
-                    {% if listing.current_price > 0 %}
+                    {% if listing.bids.all.last != None %}
                         <p>
-                            <em>Highest bid:</em> ${{ listing.current_price }}
+                            <em>Highest bid:</em> ${{ listing.bids.all.last.amount }}
                         </p>
                     {% else %}
                         <p>No bids placed yet.</p>
