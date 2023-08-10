@@ -40,7 +40,8 @@ class Listing(models.Model):
 # TODO: new bid must be higher than listing.current_price
 class Bid(models.Model):
     # Each bid is on one specific Listing
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE,
+                                related_name="bids")
     # made by one specific User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=7, decimal_places=2)
@@ -51,7 +52,8 @@ class Bid(models.Model):
 
 class Comment(models.Model):
     # Each comment is on one specific Listing
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE, 
+                                related_name="comments")
     # made by one specific User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=255)
