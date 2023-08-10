@@ -14,7 +14,11 @@
                     {% endif %}
                 </div>
                 <div class="right">
-                    <h4>{{ listing.title }}</h4>
+                    <h4>
+                        <a href="{% url 'listing' listing.id %}">
+                            {{ listing.title }}
+                        </a>
+                    </h4>
                     <p><strong>Price:</strong> ${{ listing.asking_price }}</p>
                     <p>{{ listing.description }}</p>
                     {% if listing.bids.all.last != None %}
