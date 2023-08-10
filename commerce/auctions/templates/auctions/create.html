@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h2>Create Listing</h2>
+
+<div class="flex-container">
+
+  <div class="left">
+    <img src="{% static 'auctions/no_img.jpeg' %}" alt="No image available" style="border:3px solid black">
+    <br>
+    Image URL: <input type="url" name="image_url"> (optional)
+  </div>
+
+  <div class="right">
+    <form action="" method="post">
+      {% csrf_token %}
+
+      Title: <input type="text" name="title">
+      <br>
+      Description: <input type="text" name="description">      
+      <br>
+      Asking Price: $<input type="number" name="price" value="9.99">
+      <br>
+      Category: 
+      <select name="category">
+        {% for category in categories.all %}
+          <option value="{{ category.title }}">{{ category.title }}</option>
+        {% endfor %}
+      </select> (optional)
+      <br>
+
+      <input type="submit" value="Save">
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
