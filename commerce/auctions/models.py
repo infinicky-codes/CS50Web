@@ -23,7 +23,7 @@ class Listing(models.Model):
     description = models.CharField(max_length=255, default='')
     asking_price = models.DecimalField(max_digits=7, decimal_places=2)
     # optional fields
-    current_price = models.DecimalField(max_digits=7, decimal_places=2, 
+    highest_bid = models.DecimalField(max_digits=7, decimal_places=2, 
                                         null=True, blank=True)
     image_url = models.CharField(max_length=255, null=True, blank=True)
     # A listing can belong to only 1 category

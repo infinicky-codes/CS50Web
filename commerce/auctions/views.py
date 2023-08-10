@@ -14,9 +14,30 @@ def index(request):
 
 
 def create(request):
-    return render(request, "auctions/create.html", {
-        "categories": Category.objects.all()
-    })
+    if request.method == "POST":
+        user = request.user
+        title = request.POST["title"]
+        description = request.POST["description"]
+        price = request.POST["price"]
+        highest_bid = None
+
+        if request.POST["image_url"] is not None:
+            url = request.POST["image_url"]
+        else:
+            url = None
+        if request.POST["category"] is not None:
+            category = request.POST["category"]
+        else:
+            category = None
+
+        listing = Listing.objects.create(user, title, description, 
+                    price, highest_bid, url, category)
+        listing.save()
+
+    else:
+        return render(request, "auctions/create.html", {
+            "categories": Category.objects.all()
+        })
 
 
 def watchlist(request):
