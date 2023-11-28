@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -43,13 +44,17 @@ def create(request):
             "categories": Category.objects.all()
         })
 
-# To do: add watchlist.html
-def watchlist(request):
-    return render(request, "auctions/create.html")
 
 # To do: add categories.html
 def categories(request):
     return render(request, "auctions/create.html")
+
+
+# To do: add watchlist.html
+@login_required
+def watchlist(request):
+    return render(request, "auctions/create.html")
+
 
 
 ### User specific Views ###
