@@ -43,11 +43,11 @@ def create(request):
             "categories": Category.objects.all()
         })
 
-
+# To do: add watchlist.html
 def watchlist(request):
     return render(request, "auctions/create.html")
 
-
+# To do: add categories.html
 def categories(request):
     return render(request, "auctions/create.html")
 
