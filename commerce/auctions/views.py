@@ -38,22 +38,21 @@ def create(request):
         return render(request, "auctions/index.html", {
             "listings": Listing.objects.all()
         })
-    
     else:
         return render(request, "auctions/create.html", {
             "categories": Category.objects.all()
         })
 
 
-# To do: add categories.html
+# TODO: add categories.html
 def categories(request):
-    return render(request, "auctions/create.html")
+    return render(request, "auctions/index.html")
 
 
-# To do: add watchlist.html
+# TODO: add watchlist.html
 @login_required
 def watchlist(request):
-    return render(request, "auctions/create.html")
+    return render(request, "auctions/index.html")
 
 
 
