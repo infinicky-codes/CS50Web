@@ -1,5 +1,5 @@
 # CS50Web
-This repository contains my attempts at projects from [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/) course.
+This repository contains my attempts at projects from [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/) course using Django.
 
 ![CS50 Web image displaying Google's Dinosaur game](CS50W.png)
 
